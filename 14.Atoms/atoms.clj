@@ -32,6 +32,8 @@
 ;;--------
 
 ;;***************************************************************************
+(= 5 (do (swap! atomic-clock + 5) @atomic-clock))
+
 (reset! atomic-clock 0)
 
 (= 5 (do (last (take 5 (repeatedly #(swap! atomic-clock inc))))
